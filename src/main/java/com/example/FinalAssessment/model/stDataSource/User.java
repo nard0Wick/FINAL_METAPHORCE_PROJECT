@@ -1,4 +1,4 @@
-package com.example.FinalAssessment.model;
+package com.example.FinalAssessment.model.stDataSource;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @NoArgsConstructor
@@ -39,6 +40,11 @@ public class User {
             mappedBy = "user")
     private Set<Location> location;
 
+    @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER,
+            mappedBy = "user")
+    private List<ShoppingCart> carts;
+
     @Column(name = "user_name")
     private String name;
 
@@ -52,7 +58,7 @@ public class User {
     private String telephoneNumber;
 
     @Column(name = "created_at")
-    @JsonFormat(pattern = "yyyy/MM/dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date accountCreatedAt;
 
     @Column(name = "is_active")

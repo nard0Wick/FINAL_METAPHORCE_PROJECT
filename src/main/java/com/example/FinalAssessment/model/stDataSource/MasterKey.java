@@ -1,4 +1,4 @@
-package com.example.FinalAssessment.model;
+package com.example.FinalAssessment.model.stDataSource;
 
 import jakarta.persistence.*;
 import lombok.*;

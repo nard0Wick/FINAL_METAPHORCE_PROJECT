@@ -1,14 +1,13 @@
 package com.example.FinalAssessment.service;
 
 import com.example.FinalAssessment.dto.UserDTO;
-import com.example.FinalAssessment.model.MasterKey;
-import com.example.FinalAssessment.model.User;
-import com.example.FinalAssessment.repository.UserRepo;
+import com.example.FinalAssessment.model.stDataSource.User;
+import com.example.FinalAssessment.repository.stDataSource.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -37,8 +36,9 @@ public class UserService {
     public User updateUser(User usr){
         User user = userRepo.findByEmail(usr.getEmail())
                 .map(u -> {
-                    u.setMasterKey(usr.getMasterKey());
-                    u.setLocation(usr.getLocation());
+                    u.getMasterKey().setPassword(usr.getMasterKey().getPassword());
+                    //u.setMasterKey(usr.getMasterKey());
+                    u.setLocation(usr.getLocation().stream().map(l -> {l.setUser(u); return l;}).collect(Collectors.toSet()));
                     u.setName(usr.getName());
                     u.setLastName(usr.getLastName());
                     u.setEmail(usr.getEmail());
@@ -49,6 +49,7 @@ public class UserService {
                     return u;
                 })
                 .orElseThrow(()->new RuntimeException());
+        //user.getLocation().stream().map(l -> {l.setUser(usr); return l;});
         return userRepo.save(user);
     }
 }

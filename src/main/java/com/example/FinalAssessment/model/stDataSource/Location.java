@@ -1,4 +1,4 @@
-package com.example.FinalAssessment.model;
+package com.example.FinalAssessment.model.stDataSource;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -20,9 +20,9 @@ public class Location {
     @JsonIgnore
     private Long id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
+    @ManyToOne
     @JsonIgnore
+    @JoinColumn(name = "user_id")
     private User user;
 
     @Column(name = "country_code")
