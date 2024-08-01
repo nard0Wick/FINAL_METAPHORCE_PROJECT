@@ -18,7 +18,6 @@ import java.util.Set;
 @Document("products")
 public class Product {
     @Id
-    @JsonIgnore
     private String _id;
     private Long vendorId;
     private Features features;

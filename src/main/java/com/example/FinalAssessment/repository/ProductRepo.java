@@ -12,5 +12,5 @@ public interface ProductRepo extends MongoRepository<Product, String> {
     Optional<Product> findById(String s);
 
     @Query("{'features.name' : ?0}")
-    Optional<List<Product>> findByName(String s);
+    List<Product> findByName(String s);
 }

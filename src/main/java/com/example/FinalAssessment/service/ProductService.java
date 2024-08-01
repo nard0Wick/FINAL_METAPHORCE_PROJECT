@@ -16,7 +16,7 @@ public class ProductService {
     public void addProduct(Product product){
         productRepo.save(product);
     }
-    public Optional<List<Product>> getProduct(String name){
+    public List<Product> getProduct(String name){
         return productRepo.findByName(name);
     }
     public void updateProduct(Product product){
@@ -29,5 +29,8 @@ public class ProductService {
                         }
                 ).orElseThrow(()->new RuntimeException());
         productRepo.save(updated);
+    }
+    public void deleteProduct(String id){
+        productRepo.deleteById(id);
     }
 }
