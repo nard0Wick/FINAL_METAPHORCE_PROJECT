@@ -1,4 +1,4 @@
-package com.example.FinalAssessment.model.stDataSource;
+package com.example.FinalAssessment.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

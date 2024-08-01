@@ -1,6 +1,6 @@
-package com.example.FinalAssessment.repository.stDataSource;
+package com.example.FinalAssessment.repository;
 
-import com.example.FinalAssessment.model.stDataSource.User;
+import com.example.FinalAssessment.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

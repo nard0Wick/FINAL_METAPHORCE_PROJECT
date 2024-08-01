@@ -1,7 +1,7 @@
 package com.example.FinalAssessment.controller;
 
 import com.example.FinalAssessment.dto.UserDTO;
-import com.example.FinalAssessment.model.stDataSource.User;
+import com.example.FinalAssessment.model.User;
 import com.example.FinalAssessment.service.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;

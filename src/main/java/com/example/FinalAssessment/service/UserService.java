@@ -1,8 +1,8 @@
 package com.example.FinalAssessment.service;
 
 import com.example.FinalAssessment.dto.UserDTO;
-import com.example.FinalAssessment.model.stDataSource.User;
-import com.example.FinalAssessment.repository.stDataSource.UserRepo;
+import com.example.FinalAssessment.model.User;
+import com.example.FinalAssessment.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
