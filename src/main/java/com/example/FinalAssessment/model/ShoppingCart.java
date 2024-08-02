@@ -40,6 +40,9 @@ public class ShoppingCart {
     @Column(name = "cart_reference")
     private String cartReference;
 
+    @Column(name = "cart_explanation")
+    private String cartExplanation;
+
     @Column(name = "created_at")
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date cartCreatedAt;
@@ -54,4 +57,15 @@ public class ShoppingCart {
     @Column(name = "is_selected")
     private boolean isSelected;
 
+    public ShoppingCart(String cartReference,
+                        String cartExplanation,
+                        Date cartExpiresAt,
+                        List<WishedProduct> wishedProducts) {
+        this.cartReference = cartReference;
+        this.cartExplanation = cartExplanation;
+        this.cartCreatedAt = new Date();
+        this.cartExpiresAt = cartExpiresAt;
+        this.wishedProducts = wishedProducts;
+        this.isSelected = true;
+    }
 }

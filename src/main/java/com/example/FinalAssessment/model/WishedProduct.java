@@ -23,12 +23,16 @@ public class WishedProduct {
     @JsonIgnore
     @JoinColumn(name = "cart_id")
     private ShoppingCart shoppingCart;
-    //product
+
+    @Column(name = "product_id")
+    private String productId;
 
     @Column(name = "price_per_unit")
     private double pricePerUnit;
+
     @Column(name = "discount")
     private double discount;
+
     @Column(name = "quantity")
     private int quantity;
 }

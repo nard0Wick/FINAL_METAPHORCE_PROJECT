@@ -1,5 +1,6 @@
 package com.example.FinalAssessment.service;
 
+import com.example.FinalAssessment.dto.ShoppingCartDTO;
 import com.example.FinalAssessment.model.ShoppingCart;
 import com.example.FinalAssessment.repository.ShoppingCartRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,13 +11,19 @@ public class ShoppingCartService {
     @Autowired
     private ShoppingCartRepo shoppingCartRepo;
 
-    public void createShoppingCart(ShoppingCart shoppingCart){
-        shoppingCartRepo.save(shoppingCart);
+    public ShoppingCart createShoppingCart(ShoppingCartDTO shoppingCartDTO){
+        ShoppingCart shoppingCart = null;
+        if(!shoppingCartRepo.existsByCartReference(shoppingCartDTO.getCartReference())){
+            shoppingCart = new ShoppingCart(
+                    shoppingCartDTO.getCartReference(),
+                    shoppingCartDTO.getCartExplanation(),
+                    shoppingCartDTO.getCartExpiresAt(),
+                    shoppingCartDTO.getWishedProducts()
+            );
+            shoppingCartRepo.save(shoppingCart);
+        }
+        return shoppingCart;
     }
 
-    public ShoppingCart 
-    public void updateShoppingCart(ShoppingCart shoppingCart){
 
-    }
-    public
 }
