@@ -37,6 +37,6 @@ public class Location {
     @Column(name = "street_number")
     private int streetNumber;
 
-    @Column(name = "is_selected")
-    private boolean isSelected;
+    @Column(name = "is_present")
+    private boolean present;
 }

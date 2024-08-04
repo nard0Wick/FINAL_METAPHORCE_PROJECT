@@ -1,0 +1,50 @@
+[{ 
+    "ownerId":2,  
+    "shoppingCarts":[ 
+      { 
+        "cartCreatedAt": "2024-08-03",
+        "cartReference": "myCart",
+        "cartDescription": "smt",
+        "cartExpiresAt": "2024-09-03",
+        "wishedProducts": [
+          {
+            "productId": "pr1",
+            "pricePerUnit": 0,
+            "discount": 0,
+            "quantity": 0
+          },
+          {
+            "productId": "pro2",
+            "pricePerUnit": 0,
+            "discount": 0,
+            "quantity": 0
+          }
+        ]
+      }  
+    ]
+},
+{ 
+    "ownerId":4,  
+    "shoppingCarts":[ 
+      { 
+        "cartCreatedAt": "2024-08-03",
+        "cartReference": "Cart",
+        "cartDescription": "smt",
+        "cartExpiresAt": "2024-08-03",
+        "wishedProducts": [
+          {
+            "productId": "pr1",
+            "pricePerUnit": 0,
+            "discount": 0,
+            "quantity": 0
+          },
+          {
+            "productId": "pro2",
+            "pricePerUnit": 0,
+            "discount": 0,
+            "quantity": 0
+          }
+        ]
+      }  
+    ]
+} ]

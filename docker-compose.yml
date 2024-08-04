@@ -1,0 +1,41 @@
+version: '3.8'
+services:
+  api_service:
+    build: .
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - ecommerce-net
+    environment:
+      - spring.datasource.url=jdbc:mysql://mysqldb:3306/ecommerce?zeroDateTimeBehavior=convertToNull&serverTimezone=UTC
+      - spring.data.mongodb.uri=mongodb://mongodb:27017/ecommerce
+    depends_on:
+      - mysqldb
+      - mongodb
+
+    volumes:
+      - .m2:/root/.m2
+
+  mysqldb:
+    image: mysql:8.0
+    restart: always
+    ports:
+      - "3306:3306"
+    networks:
+      - ecommerce-net
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: ecommerce
+      MYSQL_USER: spring_user
+      MYSQL_PASSWORD: spring_password
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    networks:
+      - ecommerce-net
+
+networks:
+  ecommerce-net:
